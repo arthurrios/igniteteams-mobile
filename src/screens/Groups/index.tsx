@@ -47,7 +47,7 @@ export function Groups() {
     <Container>
       <Header />
 
-      <Highlight title="Turmas" subtitle="Jogue com a sua turma" />
+      <Highlight title="Groups" subtitle="Play with your group" />
 
       {isLoading ? (
         <Loading />
@@ -66,7 +66,7 @@ export function Groups() {
         />
       )}
 
-      <Button title="Criar nova turma" onPress={handleNewGroup} />
+      <Button title="Create new group" onPress={handleNewGroup} />
     </Container>
   )
 }

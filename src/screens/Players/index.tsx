@@ -27,7 +27,7 @@ type RouteParams = {
 export function Players() {
   const [isLoading, setIsLoading] = useState(true)
   const [newPlayerName, setNewPlayerName] = useState('')
-  const [team, setTeam] = useState('Time A')
+  const [team, setTeam] = useState('Team A')
   const [players, setPlayers] = useState<PlayerStorageDTO[]>([])
 
   const newPlayerNameInputRef = useRef<TextInput>(null)
@@ -119,14 +119,14 @@ export function Players() {
     <Container>
       <Header showBackButton />
 
-      <Highlight title={group} subtitle="adicione a galera e separe os times" />
+      <Highlight title={group} subtitle="add people and separate into teams" />
 
       <Form>
         <Input
           inputRef={newPlayerNameInputRef}
           onChangeText={setNewPlayerName}
           value={newPlayerName}
-          placeholder="Nome da pessoa"
+          placeholder="Name"
           autoCorrect={false}
           onSubmitEditing={handleAddPlayer}
           returnKeyType="done"
@@ -136,7 +136,7 @@ export function Players() {
 
       <HeaderList>
         <FlatList
-          data={['Time A', 'Time B']}
+          data={['Team A', 'Team B']}
           keyExtractor={(item) => item}
           renderItem={({ item }) => (
             <Filter
@@ -174,7 +174,7 @@ export function Players() {
       )}
 
       <Button
-        title="Remover turma"
+        title="Remove group"
         type="SECONDARY"
         onPress={() => handleGroupRemove()}
       />

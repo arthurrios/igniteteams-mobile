@@ -7,7 +7,7 @@ import { FlatList } from 'react-native'
 import { ListEmpty } from '@components/ListEmpty'
 import { Button } from '@components/Button'
 import { useNavigation, useFocusEffect } from '@react-navigation/native'
-import { groupGetAll } from '@storage/group/groupGetAll'
+import { groupsGetAll } from '@storage/group/groupsGetAll'
 
 export function Groups() {
   const [groups, setGroups] = useState<string[]>([])
@@ -20,7 +20,7 @@ export function Groups() {
 
   async function fetchGroups() {
     try {
-      const data = await groupGetAll()
+      const data = await groupsGetAll()
       setGroups(data)
     } catch (error) {
       console.log(error)
@@ -33,7 +33,6 @@ export function Groups() {
 
   useFocusEffect(
     useCallback(() => {
-      console.log('useFocusEffect executou')
       fetchGroups()
     }, []),
   )
